@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Classic Games — Snake & Tic Tac Toe</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Classic Games</h1>
+      <div class="game-switch" role="tablist" aria-label="Choose game">
+        <button id="switch-snake" class="active" role="tab">Snake</button>
+        <button id="switch-ttt" role="tab">Tic Tac Toe</button>
+      </div>
+    </header>
+
+    <div class="scoreboard">
+      <div id="snakeScoreboard" class="sb">
+        <div>Score: <strong id="score">0</strong></div>
+        <div>High: <strong id="highScore">0</strong></div>
+      </div>
+
+      <div id="tttScoreboard" class="sb hidden">
+        <div id="tttStatus">Turn: X</div>
+        <div>Wins — X: <strong id="xWins">0</strong> O: <strong id="oWins">0</strong></div>
+      </div>
+    </div>
+
+    <!-- SNAKE -->
+    <section id="snakeContainer" class="game-wrap">
+      <canvas id="game" width="760" height="760" aria-label="Snake game"></canvas>
+
+      <div id="overlay" class="overlay hidden">
+        <div id="message" class="message">Press Start</div>
+        <div class="overlay-actions">
+          <button id="startPause">Start</button>
+          <button id="restart">Restart</button>
+        </div>
+      </div>
+
+      <div class="controls">
+        <label class="select-label">Speed
+          <select id="speed">
+            <option value="6">Slow</option>
+            <option value="8" selected>Normal</option>
+            <option value="12">Fast</option>
+            <option value="16">Insane</option>
+          </select>
+        </label>
+        <button id="wrapToggle" title="Toggle wall wrap">Wrap: Off</button>
+      </div>
+
+      <div class="touch-controls" aria-hidden="true">
+        <div class="row"><button data-dir="up">↑</button></div>
+        <div class="row">
+          <button data-dir="left">←</button>
+          <button data-dir="down">↓</button>
+          <button data-dir="right">→</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIC TAC TOE -->
+    <section id="tttContainer" class="ttt-wrap hidden" aria-label="Tic Tac Toe">
+      <div id="tttBoard" class="ttt-board" role="grid" aria-label="Tic Tac Toe board">
+        <div class="cell" data-index="0" role="button" aria-label="cell 1"></div>
+        <div class="cell" data-index="1" role="button" aria-label="cell 2"></div>
+        <div class="cell" data-index="2" role="button" aria-label="cell 3"></div>
+        <div class="cell" data-index="3" role="button" aria-label="cell 4"></div>
+        <div class="cell" data-index="4" role="button" aria-label="cell 5"></div>
+        <div class="cell" data-index="5" role="button" aria-label="cell 6"></div>
+        <div class="cell" data-index="6" role="button" aria-label="cell 7"></div>
+        <div class="cell" data-index="7" role="button" aria-label="cell 8"></div>
+        <div class="cell" data-index="8" role="button" aria-label="cell 9"></div>
+      </div>
+
+      <div class="ttt-controls">
+        <label class="select-label">Mode
+          <select id="tttMode">
+            <option value="2p">2-player (local)</option>
+            <option value="aiX">Single player — you X</option>
+            <option value="aiO">Single player — you O</option>
+          </select>
+        </label>
+
+        <label class="select-label">Difficulty
+          <select id="tttDifficulty">
+            <option value="easy">Easy</option>
+            <option value="normal" selected>Normal</option>
+            <option value="hard">Hard</option>
+            <option value="unbeatable">Unbeatable</option>
+          </select>
+        </label>
+
+        <button id="tttRestart">Restart</button>
+      </div>
+    </section>
+
+
+
+    <p class="hint">Snake: Arrow keys or WASD, Space = pause. Tic Tac Toe: click a cell. Toggle games above.</p>
+    <footer class="footer">Classic Snake & Tic Tac Toe — simple game</footer>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

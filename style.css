@@ -1,0 +1,48 @@
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#0f1724,#071026);color:#e6eef8;font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,Arial}
+.container{width:min(96vw,920px);text-align:center;padding:28px}
+.header{display:flex;gap:14px;align-items:center;justify-content:space-between}
+h1{margin:0;font-size:clamp(18px,3.6vw,28px)}
+.game-switch{display:flex;gap:8px}
+.game-switch button{background:transparent;border:1px solid rgba(255,255,255,0.06);color:#cfe6ff;padding:6px 10px;border-radius:8px;cursor:pointer}
+.game-switch button.active{background:#2b77ff;border-color:#2b77ff;color:#fff}
+.scoreboard{display:flex;justify-content:space-between;gap:10px;background:rgba(255,255,255,0.03);padding:10px 14px;border-radius:8px;color:#bcd7ff;margin:14px 0}
+.sb{display:flex;gap:12px;align-items:center}
+.game-wrap{position:relative;margin:0 auto;max-width:760px}
+canvas{width:100%;height:auto;max-height: min(760px, calc(100vh - 220px));background:#0b1220;border-radius:10px;display:block;box-shadow:0 10px 30px rgba(2,6,23,0.6);image-rendering:pixelated}
+.overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(2,6,23,0.55);border-radius:10px;color:#fff;padding:20px;gap:12px}
+.overlay.hidden{display:none}
+.overlay .message{font-size:20px}
+.overlay-actions{display:flex;gap:10px}
+.controls{display:flex;gap:12px;justify-content:center;align-items:center;margin-top:12px}
+.select-label{background:rgba(255,255,255,0.02);padding:6px 8px;border-radius:6px}
+button{background:#2b77ff;border:none;color:#fff;padding:8px 12px;border-radius:8px;cursor:pointer;font-weight:600}
+button:active{transform:translateY(1px)}
+.touch-controls{display:none;margin-top:14px;gap:10px;justify-content:center}
+.touch-controls .row{display:flex;gap:10px;justify-content:center}
+.touch-controls button{width:56px;height:56px;border-radius:10px;background:#101418;border:1px solid rgba(255,255,255,0.03);font-size:20px;color:#e6eef8}
+.hint{opacity:.6;font-size:13px;margin-top:12px}
+.footer{opacity:.45;margin-top:10px;font-size:12px}
+
+/* Tic Tac Toe */
+.ttt-wrap{max-width:760px;margin:18px auto}
+.ttt-board{
+  width:100%;
+  max-width: min(760px, calc(100vh - 220px));
+  aspect-ratio:1/1;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  background:linear-gradient(180deg,#071026,#0a1626);
+  padding:18px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.03);
+  box-sizing:border-box;
+}
+.ttt-board .cell{background:linear-gradient(180deg,#081826,#0e2030);aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;font-size:clamp(32px,6vmin,96px);color:#dfffa6;border-radius:8px;cursor:pointer;user-select:none;transition:transform .06s;padding:0}
+.ttt-board .cell:hover{transform:translateY(-3px)}
+.ttt-controls{display:flex;gap:10px;justify-content:center;align-items:center;margin-top:12px}
+.ttt-board .cell.x{color:#a8ffb0}
+.ttt-board .cell.o{color:#ffb0b0}
+
+.hidden{display:none}
+@media (max-width:720px){.touch-controls{display:flex}.scoreboard{font-size:14px}}
